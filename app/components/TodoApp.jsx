@@ -1,8 +1,10 @@
 import React, {Component, PropTypes} from 'react'
+import uuid from 'node-uuid'
+
 import TodoList from 'TodoList'
 import AddTodo from 'AddTodo'
 import TodoSearch from 'TodoSearch'
-import uuid from 'node-uuid'
+import TodoAPI from 'TodoAPI'
 
 export default class TodoApp extends Component {
 	constructor(props) {
@@ -10,22 +12,12 @@ export default class TodoApp extends Component {
 		this.state = {
 			showCompleted: false,
 			searchText: "",
-			todos: [
-				{
-					id: uuid(),
-					text: 'walk the dog'
-				}, {
-					id: uuid(),
-					text: 'clean the yard'
-				}, {
-					id: uuid(),
-					text: 'leave a mail'
-				}, {
-					id: uuid(),
-					text: 'play ps4 games'
-				}
-			]
+			todos: TodoAPI.getTodos()
        	}
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+    	TodoAPI.setTodos(this.state.todos)
     }
 
     handleAddTodo = (text) => {
@@ -34,10 +26,21 @@ export default class TodoApp extends Component {
     			...this.state.todos,
     			{
     				id: uuid(),
-    				text
+    				text,
+    				completed: false
     			}
     		]
     	})
+    }
+
+    handleToggle = (id) => {
+    	let updatedTodos = this.state.todos.map((todo) => {
+    		if (todo.id === id) {
+    			todo.completed = !todo.completed
+    		}
+			return todo
+    	})
+    	this.setState({todos: updatedTodos})
     }
 
     handleSearch = (showCompleted, searchText) => {
@@ -52,7 +55,7 @@ export default class TodoApp extends Component {
 		return (
 			<div>
 				<TodoSearch onSearch={this.handleSearch}/>
-				<TodoList todos={todos}/>
+				<TodoList todos={todos} onToggle={this.handleToggle}/>
 				<AddTodo onAddTodo={this.handleAddTodo}/>
 
 			</div>
