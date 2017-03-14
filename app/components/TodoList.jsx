@@ -10,9 +10,11 @@ export default class TodoList extends Component {
 
     render() {
     	let {todos, onToggle} = this.props
-    	let renderTodos = todos.map((todo) => 
-    		<Todo key={todo.id} {...todo} onToggle={onToggle}/>
-    	)
+    	let renderTodos = todos.length === 0 ? 
+    		<p className="container__message">Nothing To Do</p> : 
+    		todos.map((todo) =>	
+    			<Todo key={todo.id} {...todo} onToggle={onToggle}/>
+    		)
 		return (
 			<div>
 				{renderTodos}
