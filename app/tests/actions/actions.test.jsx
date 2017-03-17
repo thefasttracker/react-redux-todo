@@ -1,5 +1,5 @@
 import expect from 'expect'
-import actions from 'actions'
+var actions = require('actions');
 
 describe('Actions', () => {
   it('should generate search text action', () => {
