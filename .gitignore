@@ -1,4 +1,5 @@
 node_modules
+public/bundle.js
 .idea
 npm-debug.log
 .DS_storew

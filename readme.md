@@ -1,1 +1,1 @@
-React Todo App
+React + Redux Todo App
