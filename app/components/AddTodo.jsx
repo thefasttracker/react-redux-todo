@@ -1,6 +1,8 @@
 import React, {Component, PropTypes} from 'react'
+import {connect} from 'react-redux'
+import * as actions from 'actions'
 
-export default class AddTodo extends Component {
+export class AddTodo extends Component {
 	constructor(props) {
     	super(props)
 		this.state = {
@@ -9,10 +11,11 @@ export default class AddTodo extends Component {
 
     handleSubmit = (e) => {
     	if (e) e.preventDefault()
+        let {dispatch} = this.props
 		let todoText = this.refs.todoText.value
     	
     	if (todoText.trim().length > 0) {
-    		this.props.onAddTodo(todoText)
+            dispatch(actions.addTodo(todoText))
     	} else {
     		this.refs.todoText.focus() 
     	}
@@ -30,3 +33,5 @@ export default class AddTodo extends Component {
 		)
 	}
 }
+
+export default connect()(AddTodo)
