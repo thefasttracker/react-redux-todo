@@ -1,4 +1,3 @@
-
 export default {
 	setTodos (todos) {
 		if (Array.isArray(todos)) {
