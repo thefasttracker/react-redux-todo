@@ -1,22 +1,23 @@
 export default {
-	setTodos (todos) {
-		if (Array.isArray(todos)) {
-			localStorage.setItem('todos', JSON.stringify(todos))
-			return todos
-		}
-	},
-	getTodos () {
-		let stringTodos = localStorage.getItem('todos')
-		let todos = []
+	// Saves and get todos via localStorage
+	// setTodos (todos) {
+	// 	if (Array.isArray(todos)) {
+	// 		localStorage.setItem('todos', JSON.stringify(todos))
+	// 		return todos
+	// 	}
+	// },
+	// getTodos () {
+	// 	let stringTodos = localStorage.getItem('todos')
+	// 	let todos = []
 
-		try {
-			todos = JSON.parse(stringTodos)
-		} catch (e) {
+	// 	try {
+	// 		todos = JSON.parse(stringTodos)
+	// 	} catch (e) {
 
-		}
+	// 	}
 		
-		return Array.isArray(todos) ? todos : []
-	}, 
+	// 	return Array.isArray(todos) ? todos : []
+	// }, 
 
 	filterTodos (todos, showCompleted, searchText) {
 		let filteredTodos = todos

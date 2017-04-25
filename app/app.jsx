@@ -8,15 +8,16 @@ import * as actions from 'actions'
 import TodoAPI from 'TodoAPI'
 const store = require('configureStore').configure()
 
-store.subscribe(() => {
-	let state= store.getState()
-	console.log('New state: ', state)
-	TodoAPI.setTodos(state.todos)
-})
+// Save todos on localStorage
+// store.subscribe(() => {
+// 	let state= store.getState()
+// 	console.log('New state: ', state)
+// 	TodoAPI.setTodos(state.todos)
+// })
+// const initialTodos = TodoAPI.getTodos()
+// store.dispatch(actions.addTodos(initialTodos))
 
-const initialTodos = TodoAPI.getTodos()
-
-store.dispatch(actions.addTodos(initialTodos))
+store.dispatch(actions.startAddTodos())
 
 //foundation css
 import 'style!css!foundation-sites/dist/css/foundation.min.css'
