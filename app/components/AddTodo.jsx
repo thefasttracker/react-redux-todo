@@ -15,7 +15,7 @@ export class AddTodo extends Component {
 		let todoText = this.refs.todoText.value
     	
     	if (todoText.trim().length > 0) {
-            dispatch(actions.addTodo(todoText))
+            dispatch(actions.startAddTodo(todoText))
     	} else {
     		this.refs.todoText.focus() 
     	}
@@ -25,7 +25,7 @@ export class AddTodo extends Component {
     render() {
 		return(
 			<div className="container__footer">
-				<form onSubmit={this.handleSubmit }>
+				<form onSubmit={this.handleSubmit}>
 					<input type="text" ref="todoText" placeholder="What do you need to do?"/>
 					<button className="button expanded hollow">Add Todo</button>
 				</form>

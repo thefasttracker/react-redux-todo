@@ -3,11 +3,11 @@ import {connect} from 'react-redux'
 import Todo from 'Todo'
 import TodoAPI from 'TodoAPI'
 
-
+//add 'export class for tests
 export class TodoList extends Component {
 	constructor(props) {
     	super(props)
-		this.state = {
+    	this.state = {
 		}
     }
 
