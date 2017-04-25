@@ -1,6 +1,6 @@
-node_modules
+node_modules/
 public/bundle.js
+config/
 .idea
 npm-debug.log
-.DS_storew
-app/firebase/apiKey.js
+.DS_store
