@@ -1,8 +1,9 @@
 import firebase from 'firebase'
+import apiKey from 'app/firebase/apiKey'
 
 try {
 	var config = {
-	    apiKey: "AIzaSyD-7Ee7WQL_Vy67NuUEV54ExQPI9oJNB4M",
+	    apiKey,
 	    authDomain: "reacttodo-d8b7c.firebaseapp.com",
 	    databaseURL: "https://reacttodo-d8b7c.firebaseio.com",
 	    projectId: "reacttodo-d8b7c",

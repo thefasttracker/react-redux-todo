@@ -8,8 +8,6 @@ import * as actions from 'actions'
 import TodoAPI from 'TodoAPI'
 const store = require('configureStore').configure()
 
-import './playground/firebase/index'
-
 store.subscribe(() => {
 	let state= store.getState()
 	console.log('New state: ', state)
